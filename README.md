@@ -7,7 +7,8 @@ Este projeto implementa um motor de recomendação personalizado utilizando **Gr
 ## 🏗️ Arquitetura e Planejamento
 O diferencial deste projeto foi a etapa de planejamento. Antes da implementação, o esquema do grafo foi desenhado no **Arrow.app** para garantir uma estrutura normalizada e escalável.
 
-<img src="img/Arrow_graph_v2.png" width="800" alt="Modelo de Dados Arrow">
+<img width="484" height="450" alt="Arrow_graph_v2" src="https://github.com/user-attachments/assets/0a4150f9-89f9-4c65-b2eb-7792da043603" />
+
 
 ### Stack Tecnológica:
 - **Design:** Arrow.app (Graph Modeling).
@@ -24,7 +25,7 @@ A transformação dos dados tabulares para o grafo foi feita via **Cypher**, apl
 ## 🧠 Inteligência do Modelo: Índice de Jaccard
 O sistema utiliza a **Similaridade de Jaccard** para calcular a afinidade entre perfis. O motor identifica usuários com alta interseção de interesses e sugere títulos com base nessa vizinidade matemática.
 
-<img width="800" height="800" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
+<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/71b36f95-f76e-4896-aacb-d67dc37f94bb" />
 
 > **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
 
