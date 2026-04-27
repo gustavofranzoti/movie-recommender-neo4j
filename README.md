@@ -1,5 +1,6 @@
 
 
+
 # 🎬 Movie Recommendation Engine (Arrow -> Neo4j AuraDB)
 
 Este projeto implementa um motor de recomendação personalizado utilizando **Graph Databases**. O foco é mapear preferências e prever interesses com base na similaridade entre perfis de usuários, utilizando uma abordagem de "Graph-First Design".
@@ -25,7 +26,7 @@ A transformação dos dados tabulares para o grafo foi feita via **Cypher**, apl
 ## 🧠 Inteligência do Modelo: Índice de Jaccard
 O sistema utiliza a **Similaridade de Jaccard** para calcular a afinidade entre perfis. O motor identifica usuários com alta interseção de interesses e sugere títulos com base nessa vizinidade matemática.
 
-<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/71b36f95-f76e-4896-aacb-d67dc37f94bb" />
+<img width="1262" height="702" alt="bloom-visualisation (1)" src="https://github.com/user-attachments/assets/d2571ad8-412d-44b4-84b5-f70e5d5fae47" />
 
 > **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
 
