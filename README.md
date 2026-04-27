@@ -1,19 +1,24 @@
-# 🎬 Sistema de Recomendação de Filmes (Neo4j & Jaccard)
+# 🎬 Movie Recommendation Engine (Neo4j Aura & Jaccard)
 
-Projeto de um motor de recomendação baseado em **Grafos**, utilizando o dataset MovieLens. O foco principal é a identificação de similaridade comportamental entre usuários para predição de preferências.
+Este projeto implementa um sistema de recomendação personalizado utilizando **Graph Databases**. O objetivo é mapear preferências e prever interesses com base na similaridade entre perfis de usuários, utilizando infraestrutura em nuvem e processamento de grafos.
 
-## 🛠️ Desafios Técnicos e ETL
-Para estruturar o grafo, realizei um processo de saneamento de dados (ETL) no Cypher:
-- **Normalização de Gêneros:** Transformação de strings separadas por delimitadores em nós independentes.
-- **Extração via Regex:** Separação automatizada de anos de lançamento e títulos.
-- **Sanitização:** Conversão de tipos de dados para otimização de consultas no Neo4j Aura.
+## 🏗️ Ambiente e Infraestrutura
+- **Base de Dados:** Neo4j Graph Database.
+- **Plataforma:** **Neo4j AuraDB (Cloud)** - Instância gerenciada em nuvem utilizada para garantir escalabilidade e alta disponibilidade do grafo.
+- **Dataset:** **MovieLens (via Kaggle)** - Base de dados composta por milhares de avaliações de filmes, títulos e gêneros.
+- **Linguagem:** Cypher Query Language.
+
+## 🛠️ Engenharia de Dados e ETL
+O processo de transformação (ETL) foi realizado diretamente via Cypher para estruturar os dados brutos do Kaggle em uma rede relacional:
+- **Normalização de Gêneros:** Conversão de strings multiclasses em nós independentes, permitindo travessias (traversals) de alta performance.
+- **Extração via Regex:** Separação automatizada de metadados (ano e título) de strings brutas para permitir filtros temporais.
+- **Sanitização de Tipos:** Conversão de strings para tipos numéricos (IDs e Ratings), otimizando o consumo de recursos na instância Aura.
 
 ## 🧠 Algoritmo: Índice de Jaccard
-A inteligência do sistema baseia-se na **Similaridade de Jaccard**. O algoritmo calcula a afinidade entre usuários através da fórmula:
-`J(A, B) = |A ∩ B| / |A ∪ B|`
+Diferente de recomendações simples por popularidade, este motor utiliza a **Similaridade de Jaccard** para calcular a afinidade matemática entre usuários:
+- **Lógica:** O sistema identifica usuários com histórico de consumo similar (interseção de filmes bem avaliados) e recomenda títulos que o "sósia" assistiu, mas o usuário atual ainda não conhece.
+- **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
 
-Desta forma, o sistema identifica "sósias de gosto", gerando recomendações personalizadas.
-
-## 📂 Estrutura do Repositório
-- `01_limpeza_tratamento/`: Scripts para carga e preparação da base.
-- `02_modelo_jaccard/`: Lógica de similaridade e o motor final de sugestão.
+## 📂 Organização do Repositório
+- `/01_limpeza_tratamento`: Scripts de carga e preparação da base.
+- `/02_modelo_jaccard`: Implementação da lógica de similaridade e o motor final de sugestão.
