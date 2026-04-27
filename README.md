@@ -1,5 +1,5 @@
 <img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
-<img width="484" height="450" alt="Arrow_graph_v2" src="https://github.com/user-attachments/assets/50152450-6d9b-4902-8962-fc88176005ff" />
+
 # 🎬 Movie Recommendation Engine (Arrow -> Neo4j AuraDB)
 
 Este projeto implementa um motor de recomendação personalizado utilizando **Graph Databases**. O foco é mapear preferências e prever interesses com base na similaridade entre perfis de usuários, utilizando uma abordagem de "Graph-First Design".
@@ -7,7 +7,7 @@ Este projeto implementa um motor de recomendação personalizado utilizando **Gr
 ## 🏗️ Arquitetura e Planejamento
 O diferencial deste projeto foi a etapa de planejamento. Antes da implementação, o esquema do grafo foi desenhado no **Arrow.app** para garantir uma estrutura normalizada e escalável.
 
-![Modelo de Dados Arrow](img/Arrow_graph_v2.png)
+<img width="484" height="450" alt="Arrow_graph_v2" src="https://github.com/user-attachments/assets/50152450-6d9b-4902-8962-fc88176005ff" />
 
 ### Stack Tecnológica:
 - **Design:** Arrow.app (Graph Modeling).
@@ -24,7 +24,7 @@ A transformação dos dados tabulares para o grafo foi feita via **Cypher**, apl
 ## 🧠 Inteligência do Modelo: Índice de Jaccard
 O sistema utiliza a **Similaridade de Jaccard** para calcular a afinidade entre perfis. O motor identifica usuários com alta interseção de interesses e sugere títulos com base nessa vizinidade matemática.
 
-![Visualização no Neo4j Bloom](img/Neo4J_Graph.png)
+<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
 
 > **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
 
