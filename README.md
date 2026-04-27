@@ -1,24 +1,34 @@
-# 🎬 Movie Recommendation Engine (Neo4j Aura & Jaccard)
+<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
+<img width="484" height="450" alt="Arrow_graph_v2" src="https://github.com/user-attachments/assets/50152450-6d9b-4902-8962-fc88176005ff" />
+# 🎬 Movie Recommendation Engine (Arrow -> Neo4j AuraDB)
 
-Este projeto implementa um sistema de recomendação personalizado utilizando **Graph Databases**. O objetivo é mapear preferências e prever interesses com base na similaridade entre perfis de usuários, utilizando infraestrutura em nuvem e processamento de grafos.
+Este projeto implementa um motor de recomendação personalizado utilizando **Graph Databases**. O foco é mapear preferências e prever interesses com base na similaridade entre perfis de usuários, utilizando uma abordagem de "Graph-First Design".
 
-## 🏗️ Ambiente e Infraestrutura
-- **Base de Dados:** Neo4j Graph Database.
-- **Plataforma:** **Neo4j AuraDB (Cloud)** - Instância gerenciada em nuvem utilizada para garantir escalabilidade e alta disponibilidade do grafo.
-- **Dataset:** **MovieLens (via Kaggle)** - Base de dados composta por milhares de avaliações de filmes, títulos e gêneros.
-- **Linguagem:** Cypher Query Language.
+## 🏗️ Arquitetura e Planejamento
+O diferencial deste projeto foi a etapa de planejamento. Antes da implementação, o esquema do grafo foi desenhado no **Arrow.app** para garantir uma estrutura normalizada e escalável.
 
-## 🛠️ Engenharia de Dados e ETL
-O processo de transformação (ETL) foi realizado diretamente via Cypher para estruturar os dados brutos do Kaggle em uma rede relacional:
-- **Normalização de Gêneros:** Conversão de strings multiclasses em nós independentes, permitindo travessias (traversals) de alta performance.
-- **Extração via Regex:** Separação automatizada de metadados (ano e título) de strings brutas para permitir filtros temporais.
-- **Sanitização de Tipos:** Conversão de strings para tipos numéricos (IDs e Ratings), otimizando o consumo de recursos na instância Aura.
+![Modelo de Dados Arrow](img/Arrow_graph_v2.png)
 
-## 🧠 Algoritmo: Índice de Jaccard
-Diferente de recomendações simples por popularidade, este motor utiliza a **Similaridade de Jaccard** para calcular a afinidade matemática entre usuários:
-- **Lógica:** O sistema identifica usuários com histórico de consumo similar (interseção de filmes bem avaliados) e recomenda títulos que o "sósia" assistiu, mas o usuário atual ainda não conhece.
-- **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
+### Stack Tecnológica:
+- **Design:** Arrow.app (Graph Modeling).
+- **Banco de Dados:** Neo4j (Graph Database).
+- **Infraestrutura:** **Neo4j AuraDB (Cloud)** - Instância gerenciada em nuvem.
+- **Dataset:** MovieLens via Kaggle.
 
-## 📂 Organização do Repositório
-- `/01_limpeza_tratamento`: Scripts de carga e preparação da base.
-- `/02_modelo_jaccard`: Implementação da lógica de similaridade e o motor final de sugestão.
+## 🛠️ Engenharia de Dados & ETL
+A transformação dos dados tabulares para o grafo foi feita via **Cypher**, aplicando técnicas de:
+- **Normalização de Gêneros:** Criação de nós independentes para otimização de travessias.
+- **Extração via Regex:** Separação de metadados temporais (anos) de strings brutas.
+- **Sanitização:** Conversão de tipos para otimização de performance no ambiente Aura.
+
+## 🧠 Inteligência do Modelo: Índice de Jaccard
+O sistema utiliza a **Similaridade de Jaccard** para calcular a afinidade entre perfis. O motor identifica usuários com alta interseção de interesses e sugere títulos com base nessa vizinidade matemática.
+
+![Visualização no Neo4j Bloom](img/Neo4J_Graph.png)
+
+> **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
+
+## 📂 Estrutura do Repositório
+- `/01_limpeza_tratamento`: Scripts de ingestão e carga.
+- `/02_modelo_jaccard`: Implementação da lógica de similaridade e recomendação.
+- `/img`: Documentação visual do projeto.
