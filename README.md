@@ -1,4 +1,4 @@
-<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
+
 
 # 🎬 Movie Recommendation Engine (Arrow -> Neo4j AuraDB)
 
@@ -7,7 +7,7 @@ Este projeto implementa um motor de recomendação personalizado utilizando **Gr
 ## 🏗️ Arquitetura e Planejamento
 O diferencial deste projeto foi a etapa de planejamento. Antes da implementação, o esquema do grafo foi desenhado no **Arrow.app** para garantir uma estrutura normalizada e escalável.
 
-<img width="484" height="450" alt="Arrow_graph_v2" src="https://github.com/user-attachments/assets/50152450-6d9b-4902-8962-fc88176005ff" />
+<img src="img/Arrow_graph_v2.png" width="800" alt="Modelo de Dados Arrow">
 
 ### Stack Tecnológica:
 - **Design:** Arrow.app (Graph Modeling).
