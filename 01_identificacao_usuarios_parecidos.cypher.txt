@@ -1,0 +1,19 @@
+// 1. Encontra usuários com filmes em comum (notas 4 ou 5)
+MATCH (u1:User {userId: 1})-[r1:RATED]->(m:Movie)<-[r2:RATED]-(u2:User)
+WHERE r1.rating >= 4 AND r2.rating >= 4 AND u1 <> u2
+
+// 2. Prepara os conjuntos de filmes para o cálculo de Jaccard
+WITH u1, u2, count(m) AS intersecao
+MATCH (u1)-[:RATED]->(m1:Movie)
+WITH u1, u2, intersecao, collect(elementId(m1)) AS set1
+MATCH (u2)-[:RATED]->(m2:Movie)
+WITH u1, u2, intersecao, set1, collect(elementId(m2)) AS set2
+
+// 3. Calcula o índice final (Interseção / União)
+WITH u2, intersecao, 
+     (size(set1) + size(set2) - intersecao) AS uniao
+RETURN u2.userId AS UsuarioSimilar, 
+       intersecao AS FilmesEmComum, 
+       (1.0 * intersecao / uniao) AS jaccardIndex
+ORDER BY jaccardIndex DESC
+LIMIT 10;
