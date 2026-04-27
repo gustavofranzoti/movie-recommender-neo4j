@@ -24,7 +24,7 @@ A transformação dos dados tabulares para o grafo foi feita via **Cypher**, apl
 ## 🧠 Inteligência do Modelo: Índice de Jaccard
 O sistema utiliza a **Similaridade de Jaccard** para calcular a afinidade entre perfis. O motor identifica usuários com alta interseção de interesses e sugere títulos com base nessa vizinidade matemática.
 
-<img width="1262" height="702" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
+<img width="800" height="800" alt="Neo4J_Graph" src="https://github.com/user-attachments/assets/08d237d1-085e-4999-8349-e4a132d2e8e4" />
 
 > **Fórmula:** `J(A, B) = |A ∩ B| / |A ∪ B|`
 
